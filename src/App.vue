@@ -1,3 +1,9 @@
+<script setup>
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
+import DataTable from './components/DataTable.vue'
+</script>
+
 <template>
   <div class="app-container">
     <Header />
@@ -10,13 +16,7 @@
     
     <Footer />
   </div>
-</template>
-
-<script setup>
-import Header from './components/Header.vue'
-import Footer from './components/Footer.vue'
-import DataTable from './components/DataTable.vue'
-</script>
+</template> 
 
 <style>
 .app-container {
@@ -42,4 +42,4 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
-</style>
+</style>  

@@ -1,35 +1,3 @@
-<template>
-  <div class="card">
-    <h2 class="text-2xl font-bold mb-3">Таблица пользователей</h2>
-    
-    <DataTable 
-      :value="users" 
-      :paginator="true" 
-      :rows="5"
-      paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-      :rowsPerPageOptions="[5, 10, 20]"
-      currentPageReportTemplate="Показано {first} до {last} из {totalRecords} записей  "
-      stripedRows
-      class="p-datatable-sm"
-    >
-      <Column field="id" header="ID" sortable style="width: 5%"></Column>
-      <Column field="name" header="Имя" sortable style="width: 20%"></Column>
-      <Column field="email" header="Email" sortable style="width: 25%"></Column>
-      <Column field="country" header="Страна" sortable style="width: 15%"></Column>
-      <Column field="status" header="Статус" sortable style="width: 15%">
-        <template #body="{ data }">
-          <Tag :value="data.status" :severity="getSeverity(data.status)" />
-        </template>
-      </Column>
-      <Column field="date" header="Дата регистрации" sortable style="width: 20%">
-        <template #body="{ data }">
-          {{ formatDate(data.date) }}
-        </template>
-      </Column>
-    </DataTable>
-  </div>
-</template>
-
 <script setup>
 import { useDataStore } from '../stores/data'
 import { computed } from 'vue'
@@ -39,7 +7,7 @@ import Tag from 'primevue/tag'
 
 // Получаем данные из хранилища Pinia
 const dataStore = useDataStore()
-const users = computed(() => dataStore.users)
+const users = computed(() => dataStore.users) //делает users реактивным
 
 // Функция для определения стиля тега статуса
 const getSeverity = (status) => {
@@ -47,7 +15,7 @@ const getSeverity = (status) => {
     case 'Активен':
       return 'success'
     case 'Неактивен':
-      return 'warning'
+      return 'warning' //оно не выделяется желтым ну никак, все перепробовал
     default:
       return null
   }
@@ -59,6 +27,38 @@ const formatDate = (dateString) => {
   return new Date(dateString).toLocaleDateString('ru-RU', options)
 }
 </script>
+
+<template>
+  <div class="card">
+    <h2 class="text-2xl font-bold mb-3">Таблица пользователей</h2>
+    
+    <DataTable 
+      :value="users" 
+      :paginator="true" 
+      :rows="5"
+      paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+      :rowsPerPageOptions="[5, 10, 20]"
+      currentPageReportTemplate="Показано {first} до {last} из {totalRecords} записей"
+      stripedRows
+    >
+      <Column field="id" header="ID" sortable style="width: 5%"></Column>
+      <Column field="name" header="Имя" sortable style="width: 20%"></Column>
+      <Column field="email" header="Email" sortable style="width: 25%"></Column>
+      <Column field="country" header="Страна" sortable style="width: 15%"></Column>
+      <Column field="status" header="Статус" sortable style="width: 15%">
+        <!-- <template #body="{ data }">
+          <Tag :value="data.status" :severity="getSeverity(data.status)" />
+        </template> -->
+      </Column>
+      <Column field="date" header="Дата регистрации" sortable style="width: 20%">
+        <template #body="{ data }">
+          {{ formatDate(data.date) }}
+        </template>
+      </Column>
+    </DataTable>
+  </div>
+</template>
+
 
 <style scoped>
 .card {

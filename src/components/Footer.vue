@@ -1,3 +1,7 @@
+<script setup>
+// Используем setup script для нового стиля компонентов Vue 3
+</script>
+
 <template>
   <div class="footer bg-primary text-white p-3">
     <div class="container">
@@ -15,10 +19,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-// Используем setup script для нового стиля компонентов Vue 3
-</script>
 
 <style scoped>
 .footer {
