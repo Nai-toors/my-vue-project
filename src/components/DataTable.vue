@@ -15,7 +15,7 @@ const getSeverity = (status) => {
     case 'Активен':
       return 'success'
     case 'Неактивен':
-      return 'warning' //оно не выделяется желтым ну никак, все перепробовал
+      return 'warn' //оно не выделяется желтым ну никак, все перепробовал
     default:
       return null
   }
@@ -46,9 +46,9 @@ const formatDate = (dateString) => {
       <Column field="email" header="Email" sortable style="width: 25%"></Column>
       <Column field="country" header="Страна" sortable style="width: 15%"></Column>
       <Column field="status" header="Статус" sortable style="width: 15%">
-        <!-- <template #body="{ data }">
+        <template #body="{ data }">
           <Tag :value="data.status" :severity="getSeverity(data.status)" />
-        </template> -->
+        </template>
       </Column>
       <Column field="date" header="Дата регистрации" sortable style="width: 20%">
         <template #body="{ data }">
@@ -67,5 +67,25 @@ const formatDate = (dateString) => {
   border-radius: 10px;
   margin-bottom: 2rem;
   box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.p-tag.p-tag-success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.p-tag.p-tag-warning {
+  background-color: #ffc107;
+  color: black;
+}
+
+.p-tag.p-tag-danger {
+  background-color: #f44336;
+  color: white;
+}
+
+.p-tag.p-tag-info {
+  background-color: #2196f3;
+  color: white;
 }
 </style>
