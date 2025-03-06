@@ -7,7 +7,7 @@
     <div class="container">
       <div class="flex justify-content-between align-items-center">
         <div>
-          <p class="mb-0">&copy; 2025 Vue Project. Все права защищены.</p>
+          <p class="m-0 p-2">&copy; 2025 Vue Project. Все права защищены.</p>
         </div>
         <div>
           <ul class="footer-links flex list-none m-0 p-0">

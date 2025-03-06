@@ -3,6 +3,7 @@ import { createPinia } from 'pinia'
 import PrimeVue from 'primevue/config'
 import NovaLight from '@primeuix/themes/aura'
 import App from './App.vue'
+import router from './router' 
 
 // PrimeFlex и PrimeIcons
 import 'primeflex/primeflex.css'
@@ -21,5 +22,5 @@ app.use(PrimeVue, {
     }
   }
 })
-
+app.use(router)  // подключаем роутер
 app.mount('#app')
