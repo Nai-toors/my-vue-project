@@ -12,14 +12,10 @@
         <div>
           <ul class="footer-links flex list-none m-0 p-0">
             <li class="mr-3">
-              <a href="#" class="text-white no-underline hover:text-blue-200"
-                >Политика конфиденциальности</a
-              >
+              <a href="#" class="text-white no-underline hover:text-blue-200">Политика конфиденциальности</a>
             </li>
             <li>
-              <a href="#" class="text-white no-underline hover:text-blue-200"
-                >Условия использования</a
-              >
+              <a href="#" class="text-white no-underline hover:text-blue-200">Условия использования</a>
             </li>
           </ul>
         </div>

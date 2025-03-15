@@ -1,5 +1,5 @@
 <script setup>
-import aboutImage from '../assets/rock.jpg'  // Импорт изображения из папки assets
+import aboutImage from '../assets/rock.jpg'; // Импорт изображения из папки assets
 </script>
 
 <template>
@@ -11,6 +11,5 @@ import aboutImage from '../assets/rock.jpg'  // Импорт изображен�
 
 <style scoped>
 .about-page {
-
 }
 </style>

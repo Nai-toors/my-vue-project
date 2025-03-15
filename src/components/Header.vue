@@ -1,3 +1,7 @@
+<script setup>
+// setup script при необходимости
+</script>
+
 <template>
   <div class="header">
     <div class="surface-0 shadow-2 p-3">
@@ -12,7 +16,6 @@
             </li>
             <li class="mr-4">
               <router-link :to="{ name: 'About' }" class="no-underline text-700 hover:text-primary">О проекте</router-link>
-
             </li>
           </ul>
         </div>
@@ -20,10 +23,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-// setup script при необходимости
-</script>
 
 <style scoped>
 .header {
