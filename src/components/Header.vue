@@ -30,6 +30,6 @@
 }
 
 .logo {
-  transition: color 0.3s;
+  transition: color 0.31s;
 }
 </style>
