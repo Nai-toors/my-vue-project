@@ -1,8 +1,8 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
 export const useDataStore = defineStore('data', {
-// Функция state возвращает объект, содержащий массив users.
-  state: () => ({           
+  // Функция state возвращает объект, содержащий массив users.
+  state: () => ({
     users: [
       {
         id: 1,
@@ -10,7 +10,7 @@ export const useDataStore = defineStore('data', {
         email: 'ivan@example.com',
         status: 'Активен',
         date: '2023-01-15',
-        country: 'Россия'
+        country: 'Россия',
       },
       {
         id: 2,
@@ -18,7 +18,7 @@ export const useDataStore = defineStore('data', {
         email: 'maria@example.com',
         status: 'Активен',
         date: '2023-02-20',
-        country: 'Россия'
+        country: 'Россия',
       },
       {
         id: 3,
@@ -26,7 +26,7 @@ export const useDataStore = defineStore('data', {
         email: 'alex@example.com',
         status: 'Неактивен',
         date: '2023-03-10',
-        country: 'Беларусь'
+        country: 'Беларусь',
       },
       {
         id: 4,
@@ -34,7 +34,7 @@ export const useDataStore = defineStore('data', {
         email: 'elena@example.com',
         status: 'Активен',
         date: '2023-04-05',
-        country: 'Казахстан'
+        country: 'Казахстан',
       },
       {
         id: 5,
@@ -42,7 +42,7 @@ export const useDataStore = defineStore('data', {
         email: 'dmitry@example.com',
         status: 'Неактивен',
         date: '2023-05-12',
-        country: 'Россия'
+        country: 'Россия',
       },
       {
         id: 6,
@@ -50,7 +50,7 @@ export const useDataStore = defineStore('data', {
         email: 'olga@example.com',
         status: 'Активен',
         date: '2023-06-18',
-        country: 'Украина'
+        country: 'Украина',
       },
       {
         id: 7,
@@ -58,7 +58,7 @@ export const useDataStore = defineStore('data', {
         email: 'sergey@example.com',
         status: 'Активен',
         date: '2023-07-24',
-        country: 'Россия'
+        country: 'Россия',
       },
       {
         id: 8,
@@ -66,7 +66,7 @@ export const useDataStore = defineStore('data', {
         email: 'anna@example.com',
         status: 'Неактивен',
         date: '2023-08-09',
-        country: 'Беларусь'
+        country: 'Беларусь',
       },
       {
         id: 9,
@@ -74,7 +74,7 @@ export const useDataStore = defineStore('data', {
         email: 'maxim@example.com',
         status: 'Активен',
         date: '2023-09-15',
-        country: 'Россия'
+        country: 'Россия',
       },
       {
         id: 10,
@@ -82,7 +82,7 @@ export const useDataStore = defineStore('data', {
         email: 'alina@example.com',
         status: 'Активен',
         date: '2023-10-02',
-        country: 'Казахстан'
+        country: 'Казахстан',
       },
       {
         id: 11,
@@ -90,7 +90,7 @@ export const useDataStore = defineStore('data', {
         email: 'gennadiy@example.com',
         status: 'Неактивен',
         date: '2023-11-18',
-        country: 'Беларусь'
+        country: 'Беларусь',
       },
       {
         id: 12,
@@ -98,7 +98,7 @@ export const useDataStore = defineStore('data', {
         email: 'victoria@example.com',
         status: 'Активен',
         date: '2023-12-01',
-        country: 'Украина'
+        country: 'Украина',
       },
       {
         id: 13,
@@ -106,7 +106,7 @@ export const useDataStore = defineStore('data', {
         email: 'roman@example.com',
         status: 'Активен',
         date: '2024-01-10',
-        country: 'Россия'
+        country: 'Россия',
       },
       {
         id: 14,
@@ -114,7 +114,7 @@ export const useDataStore = defineStore('data', {
         email: 'lyudmila@example.com',
         status: 'Неактивен',
         date: '2024-02-18',
-        country: 'Беларусь'
+        country: 'Беларусь',
       },
       {
         id: 15,
@@ -122,7 +122,7 @@ export const useDataStore = defineStore('data', {
         email: 'kirill@example.com',
         status: 'Неактивен',
         date: '2024-03-01',
-        country: 'Россия'
+        country: 'Россия',
       },
       {
         id: 16,
@@ -130,7 +130,7 @@ export const useDataStore = defineStore('data', {
         email: 'anzhela@example.com',
         status: 'Активен',
         date: '2024-03-03',
-        country: 'Украина'
+        country: 'Украина',
       },
       {
         id: 17,
@@ -138,7 +138,7 @@ export const useDataStore = defineStore('data', {
         email: 'dmitriy@example.com',
         status: 'Активен',
         date: '2024-03-04',
-        country: 'Казахстан'
+        country: 'Казахстан',
       },
       {
         id: 18,
@@ -146,7 +146,7 @@ export const useDataStore = defineStore('data', {
         email: 'artem@example.com',
         status: 'Неактивен',
         date: '2024-03-06',
-        country: 'Беларусь'
+        country: 'Беларусь',
       },
       {
         id: 19,
@@ -154,7 +154,7 @@ export const useDataStore = defineStore('data', {
         email: 'lyudmila_v@example.com',
         status: 'Активен',
         date: '2024-03-08',
-        country: 'Россия'
+        country: 'Россия',
       },
       {
         id: 20,
@@ -162,20 +162,26 @@ export const useDataStore = defineStore('data', {
         email: 'valeriy@example.com',
         status: 'Неактивен',
         date: '2024-03-10',
-        country: 'Украина'
-      }
-    ]
+        country: 'Украина',
+      },
+    ],
   }),
-  
+
   actions: {
-    addUser(user) {    //динамическое расширение списка (по желанию)
-      this.users.push(user)
+    addUser(user) {
+      this.users.push(user);
     },
-    deleteUser(id) {     // удаление строки по id пользователя 
-      const index = this.users.findIndex(user => user.id === id)
-      if (index !== -1) { 
-        this.users.splice(index, 1)
+    deleteUser(id) {
+      const index = this.users.findIndex(user => user.id === id);
+      if (index !== -1) {
+        this.users.splice(index, 1);
       }
-    }
-  }
-})
+    },
+    updateUser(updatedUser) {
+      const index = this.users.findIndex(user => user.id === updatedUser.id);
+      if (index !== -1) {
+        this.users[index] = { ...this.users[index], ...updatedUser };
+      }
+    },
+  },
+});
