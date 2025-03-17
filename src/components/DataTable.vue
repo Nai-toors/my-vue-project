@@ -89,7 +89,7 @@ function deleteExistingUser() {
 </script>
 
 <template>
-  <div class="card shadow-1">
+  <div class="shadow-1 bg-white p-3 border-round-xl">
     <h2 class="text-2xl font-bold mb-3">Таблица пользователей</h2>
 
     <!-- Кнопки управления -->
@@ -201,9 +201,5 @@ function deleteExistingUser() {
 </template>
 
 <style scoped>
-.card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-}
+
 </style>
