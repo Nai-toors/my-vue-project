@@ -184,4 +184,5 @@ export const useDataStore = defineStore('data', {
       }
     },
   },
+  persist: true // Включаем персистентность для этого store
 });

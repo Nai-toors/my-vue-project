@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, nextTick } from 'vue';
 import { useDataStore } from '../stores/data';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
@@ -7,6 +7,7 @@ import Tag from 'primevue/tag';
 import Button from 'primevue/button';
 import Dialog from 'primevue/dialog';
 import InputText from 'primevue/inputtext';
+import Popover from 'primevue/popover';
 
 const dataStore = useDataStore();
 const users = computed(() => dataStore.users);
@@ -69,7 +70,6 @@ function openDeleteDialog() {
 
 // Функции для сохранения данных
 function saveNewUser() {
-  // Пример генерации нового id: берем максимальное значение + 1
   const newId = Math.max(...users.value.map(u => u.id)) + 1;
   formUser.value.id = newId;
   dataStore.addUser({ ...formUser.value });
@@ -86,6 +86,41 @@ function deleteExistingUser() {
   visibleDelete.value = false;
   selectedUser.value = null;
 }
+
+// Новые переменные и функция для генерации случайных записей
+const randomCount = ref(0);
+const popoverRef = ref(null);
+
+function generateRandomUsers() {
+  // Генерируем случайное число от 1 до 10
+  const count = Math.floor(Math.random() * 10) + 1;
+  randomCount.value = count;
+  for (let i = 0; i < count; i++) {
+    const newId = Math.max(...users.value.map(u => u.id)) + 1;
+    const newUser = {
+      id: newId,
+      name: `Случайный пользователь ${newId}`,
+      email: `user${newId}@example.com`,
+      status: Math.random() > 0.5 ? 'Активен' : 'Неактивен',
+      date: new Date().toISOString().split('T')[0],
+      country: ['Россия', 'Беларусь', 'Украина', 'Казахстан'][Math.floor(Math.random() * 4)],
+    };
+    dataStore.addUser(newUser);
+  }
+}
+
+// Функция для отображения Popover по клику на кнопку-триггер
+function showInfo(event) {
+  // Если Popover уже открыт, скрываем его
+  if (popoverRef.value) {
+    //popoverRef — это реактивная переменная, созданная через ref, которая ссылается на компонент Popover
+    popoverRef.value.hide(); //Если значение popoverRef.value определено, значит компонент инициализирован -> скрываем
+  }
+  nextTick(() => {
+    //nextTick - отложенная функция Vue, которая дожидается построения DOM дерева, показывая popover только после завершения DOM
+    popoverRef.value.show(event); //собна так и отображается popover
+  });
+}
 </script>
 
 <template>
@@ -97,6 +132,12 @@ function deleteExistingUser() {
       <Button label="Добавить" icon="pi pi-plus" class="p-button-success" @click="openAddDialog" />
       <Button label="Изменить" icon="pi pi-pencil" class="p-button-warning" :disabled="!selectedUser" @click="openEditDialog" />
       <Button label="Удалить" icon="pi pi-trash" class="p-button-danger" :disabled="!selectedUser" @click="openDeleteDialog" />
+
+      <!-- Кнопка для генерации случайных записей -->
+      <Button label="Генерировать записи" class="p-button-info" @click="generateRandomUsers" />
+
+      <!-- Кнопка-триггер для Popover с информацией о количестве записей -->
+      <Button icon="pi pi-info-circle" class="p-button-text" @click="showInfo" />
     </div>
 
     <!-- Таблица пользователей -->
@@ -156,7 +197,6 @@ function deleteExistingUser() {
           <label>Страна:</label>
           <InputText v-model="formUser.country" />
         </div>
-        <!-- Дополнительные поля можно добавить по необходимости -->
         <div class="flex justify-end gap-2">
           <Button label="Отмена" severity="secondary" @click="visibleAdd = false" />
           <Button label="Сохранить" @click="saveNewUser" />
@@ -179,7 +219,6 @@ function deleteExistingUser() {
           <label>Страна:</label>
           <InputText v-model="formUser.country" />
         </div>
-        <!-- Дополнительные поля -->
         <div class="flex justify-end gap-2">
           <Button label="Отмена" severity="secondary" @click="visibleEdit = false" />
           <Button label="Сохранить" @click="updateExistingUser" />
@@ -190,16 +229,21 @@ function deleteExistingUser() {
     <!-- Диалог удаления -->
     <Dialog v-model:visible="visibleDelete" modal header="Удалить пользователя" :style="{ width: '25rem' }">
       <div class="p-3">
-        <p>Вы действительно хотите удалить пользователя {{ selectedUser?.name }}?</p>
+        <p>Вы действительно хотите удалить пользователя "{{ selectedUser?.name }}"?</p>
         <div class="flex justify-end gap-2">
           <Button label="Отмена" severity="secondary" @click="visibleDelete = false" />
           <Button label="Удалить" icon="pi pi-trash" class="p-button-danger" @click="deleteExistingUser" />
         </div>
       </div>
     </Dialog>
+
+    <!-- Popover, открывающийся по клику на кнопку-триггер -->
+    <Popover ref="popoverRef">
+      <div>Количество записей: {{ users.length }}</div>
+    </Popover>
   </div>
 </template>
 
 <style scoped>
-
+/* Ваши стили */
 </style>
