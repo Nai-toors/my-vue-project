@@ -17,6 +17,9 @@
             <li class="mr-4">
               <router-link :to="{ name: 'About' }" class="no-underline text-700 hover:text-primary">О проекте</router-link>
             </li>
+            <li class="mr-4">
+              <router-link :to="{ name: 'Moveable' }" class="no-underline text-700 hover:text-primary">Moveable</router-link>
+            </li>
           </ul>
         </div>
       </div>
