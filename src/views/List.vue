@@ -1,5 +1,5 @@
 <script setup>
-import MoveAble from '../components/vue3-moveable.vue';
+import MoveAble from '../components/Moveable.vue';
 </script>
 
 <template>

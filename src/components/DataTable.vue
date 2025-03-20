@@ -184,56 +184,60 @@ function showInfo(event) {
 
     <!-- Диалог добавления -->
     <Dialog v-model:visible="visibleAdd" modal header="Добавить пользователя" :style="{ width: '25rem' }">
-      <div class="p-3">
-        <div class="mb-2">
-          <label>Имя:</label>
-          <InputText v-model="formUser.name" />
-        </div>
-        <div class="mb-2">
-          <label>Email:</label>
-          <InputText v-model="formUser.email" />
-        </div>
-        <div class="mb-2">
-          <label>Страна:</label>
-          <InputText v-model="formUser.country" />
-        </div>
-        <div class="flex justify-end gap-2">
-          <Button label="Отмена" severity="secondary" @click="visibleAdd = false" />
-          <Button label="Сохранить" @click="saveNewUser" />
-        </div>
+      <!-- Имя -->
+      <div class="mb-3">
+        <label class="block font-medium mb-1" for="addName">Имя:</label>
+        <InputText id="addName" v-model="formUser.name" class="w-full" />
+      </div>
+      <!-- Email -->
+      <div class="mb-3">
+        <label class="block font-medium mb-1" for="addEmail">Email:</label>
+        <InputText id="addEmail" v-model="formUser.email" class="w-full" />
+      </div>
+      <!-- Страна -->
+      <div class="mb-3">
+        <label class="block font-medium mb-1" for="addCountry">Страна:</label>
+        <InputText id="addCountry" v-model="formUser.country" class="w-full" />
+      </div>
+
+      <!-- Кнопки -->
+      <div class="flex justify-end gap-2">
+        <Button label="Отмена" severity="secondary" @click="visibleAdd = false" />
+        <Button label="Сохранить" @click="saveNewUser" />
       </div>
     </Dialog>
 
     <!-- Диалог редактирования -->
     <Dialog v-model:visible="visibleEdit" modal header="Изменить пользователя" :style="{ width: '25rem' }">
-      <div class="p-3">
-        <div class="mb-2">
-          <label>Имя:</label>
-          <InputText v-model="formUser.name" />
-        </div>
-        <div class="mb-2">
-          <label>Email:</label>
-          <InputText v-model="formUser.email" />
-        </div>
-        <div class="mb-2">
-          <label>Страна:</label>
-          <InputText v-model="formUser.country" />
-        </div>
-        <div class="flex justify-end gap-2">
-          <Button label="Отмена" severity="secondary" @click="visibleEdit = false" />
-          <Button label="Сохранить" @click="updateExistingUser" />
-        </div>
+      <!-- Имя -->
+      <div class="mb-3">
+        <label class="block font-medium mb-1" for="editName">Имя:</label>
+        <InputText id="editName" v-model="formUser.name" class="w-full" />
+      </div>
+      <!-- Email -->
+      <div class="mb-3">
+        <label class="block font-medium mb-1" for="editEmail">Email:</label>
+        <InputText id="editEmail" v-model="formUser.email" class="w-full" />
+      </div>
+      <!-- Страна -->
+      <div class="mb-3">
+        <label class="block font-medium mb-1" for="editCountry">Страна:</label>
+        <InputText id="editCountry" v-model="formUser.country" class="w-full" />
+      </div>
+
+      <!-- Кнопки -->
+      <div class="flex justify-end gap-2">
+        <Button label="Отмена" severity="secondary" @click="visibleEdit = false" />
+        <Button label="Сохранить" @click="updateExistingUser" />
       </div>
     </Dialog>
 
     <!-- Диалог удаления -->
     <Dialog v-model:visible="visibleDelete" modal header="Удалить пользователя" :style="{ width: '25rem' }">
-      <div class="p-3">
-        <p>Вы действительно хотите удалить пользователя "{{ selectedUser?.name }}"?</p>
-        <div class="flex justify-end gap-2">
-          <Button label="Отмена" severity="secondary" @click="visibleDelete = false" />
-          <Button label="Удалить" icon="pi pi-trash" class="p-button-danger" @click="deleteExistingUser" />
-        </div>
+      <p>Вы действительно хотите удалить пользователя "{{ selectedUser?.name }}"?</p>
+      <div class="flex justify-end gap-2 mt-4">
+        <Button label="Отмена" severity="secondary" @click="visibleDelete = false" />
+        <Button label="Удалить" icon="pi pi-trash" class="p-button-danger" @click="deleteExistingUser" />
       </div>
     </Dialog>
 

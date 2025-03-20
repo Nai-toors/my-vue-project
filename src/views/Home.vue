@@ -9,5 +9,5 @@ import DataTable from '../components/DataTable.vue';
 </template>
 
 <style scoped>
-/* Дополнительные стили, если нужно */
+
 </style>
