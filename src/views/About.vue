@@ -10,6 +10,5 @@ import aboutImage from '../assets/rock.jpg'; // Импорт изображен�
 </template>
 
 <style scoped>
-.about-page {
-}
+
 </style>

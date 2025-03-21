@@ -1,5 +1,52 @@
-# Vue 3 + Vite
+# my-vue-project
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Описание
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+Это учебный проект, в котором я осваиваю создание приложений на Vue с использованием Vite. В приложении реализована таблица пользователей с помощью DataTable из PrimeVue, настроен роутинг, а также реализовано отдельное окно для вывода списка, где можно менять порядок записей. Дополнительно используется Pinia для управления состоянием и PrimeFlex для адаптивной вёрстки.
+
+## Установка
+
+1. **Клонирование репозитория:**
+
+   ```bash
+   git clone https://github.com/Nai-toors/my-vue-project
+   ```
+
+2. **Установка зависимостей:**
+
+   ```bash
+   npm install
+   ```
+
+3. **(Опционально) Дополнительная настройка темы:**
+
+   При необходимости можно настроить [@primeuix/themes](https://www.primefaces.org/primevue/showcase/#/setup) для изменения внешнего вида.
+
+## Запуск проекта
+
+Для запуска приложения в режиме разработки выполните:
+
+```bash
+npm run dev
+```
+
+После этого приложение будет доступно по адресу, указанному в консоли (обычно [http://localhost:8082](http://localhost:8082) или другой порт, если он задан в конфигурации).
+
+## Использование
+
+Приложение имеет интуитивно понятный интерфейс.  
+Чтобы удалить сгенерированные записи, откройте консоль браузера и выполните команду:
+
+```js
+localStorage.clear()
+```
+
+## Особенности
+
+- Демонстрация базового функционала Vue
+- Использование PrimeVue DataTable для отображения данных
+- Реализация роутинга и работы с модальными окнами
+- Управление состоянием с помощью Pinia
+- Адаптивная вёрстка с PrimeFlex
+
+## Демо можно посмотреть по [ссылке](https://my-vue-project-beta.vercel.app/)

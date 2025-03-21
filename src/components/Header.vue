@@ -17,6 +17,9 @@
             <li class="mr-4">
               <router-link :to="{ name: 'About' }" class="no-underline text-700 hover:text-primary">О проекте</router-link>
             </li>
+            <li class="mr-4">
+              <router-link :to="{ name: 'List' }" class="no-underline text-700 hover:text-primary">Список</router-link>
+            </li>
           </ul>
         </div>
       </div>
@@ -30,6 +33,6 @@
 }
 
 .logo {
-  transition: color 0.3s;
+  transition: color 0.2s;
 }
 </style>

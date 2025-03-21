@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="footer bg-primary text-white p-3">
+  <div class="footer text-white p-3">
     <div class="container">
       <div class="flex justify-content-between align-items-center">
         <div>
@@ -26,7 +26,6 @@
 
 <style scoped>
 .footer {
-  margin-top: auto;
   background-color: black !important;
 }
 </style>
