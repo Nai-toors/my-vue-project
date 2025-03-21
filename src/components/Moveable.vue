@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from 'vue';
-import { useDataStore } from '../stores/data';
+import { useDataStore } from '@/stores/data';
 import draggable from 'vuedraggable';
 
 const store = useDataStore();

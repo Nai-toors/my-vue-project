@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed, nextTick } from 'vue';
-import { useDataStore } from '../stores/data';
+import { useDataStore } from '@/stores/data';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Tag from 'primevue/tag';
@@ -150,6 +150,8 @@ function showInfo(event) {
     <DataTable
       :value="users"
       dataKey="id"
+      scrollable
+      scrollHeight="308px"
       v-model:expandedRows="expandedRows"
       selectionMode="single"
       v-model:selection="selectedUser"
