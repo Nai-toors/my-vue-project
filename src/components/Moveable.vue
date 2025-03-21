@@ -123,7 +123,7 @@ onUnmounted(() => {
 <template>
   <!-- Окно -->
   <div
-    class="fixed border-round shadow-2 bg-white overflow-hidden user-select-none"
+    class="user-select-none fixed border-round shadow-2 bg-white overflow-hidden z-5"
     :style="{
       top: windowTop + 'px',
       left: windowLeft + 'px',
@@ -138,14 +138,14 @@ onUnmounted(() => {
       @mousedown="startDrag"
     >
       <span>Перемещаемое окно</span>
-      <button @click="closeWindow" class="p-link text-2xl close-btn">×</button>
+      <button @click="closeWindow" class="close-btn p-link text-2xl cursor-pointer">×</button>
     </div>
 
     <!-- Тело окна (список пользователей) -->
     <div class="p-2 overflow-auto" :style="{ height: `calc(${windowHeight}px - 41px)` }">
       <draggable v-model="users" item-key="id" @update="onDragUpdate">
         <template #item="{ element }">
-          <div class="user-item">
+          <div class="user-item p-2 my-1 border-1 border-200 border-round-sm transition-duration-300 cursor-move">
             <div class="font-bold mb-1">{{ element.name }}</div>
             <div class="text-sm text-secondary mb-1">{{ element.email }}</div>
             <div class="text-xs" :class="statusClass(element.status)">
@@ -156,20 +156,17 @@ onUnmounted(() => {
       </draggable>
     </div>
     <!-- Ручка изменения размера -->
-    <div class="resize-handle" @mousedown="startResize"></div>
+    <div class="resize-handle absolute right-0 bottom-0 w-1rem h-1rem cursor-se-resize z-5" @mousedown="startResize"></div>
   </div>
 </template>
 
 <style scoped>
-.fixed {
-  position: fixed;
-  z-index: 1000;
-}
+
 
 .close-btn {
   border: none;
   background: none;
-  cursor: pointer;
+
 }
 
 /* Отключаем выделение текста (user-select) */
@@ -177,33 +174,19 @@ onUnmounted(() => {
   user-select: none;
 }
 
-.user-item {
-  padding: 10px;
-  margin: 5px 0;
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  transition: all 0.3s;
-  cursor: move;
+
+
+/* Ручка изменения размера */
+.resize-handle {
+  cursor: se-resize;
 }
 
+/* Псевдоклассов и псевдоэлементов нет в primeflex */
 .user-item:hover {
   background: #f9f9f9;
   transform: translateX(5px);
 }
-
-/* Ручка изменения размера */
-.resize-handle {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 16px;
-  height: 16px;
-  cursor: se-resize;
-  background: transparent;
-  z-index: 10;
-}
-
+/* "ручка", за которую тянуть размер */
 .resize-handle::after {
   content: '';
   position: absolute;

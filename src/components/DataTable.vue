@@ -95,6 +95,9 @@ function generateRandomUsers() {
   // Генерируем случайное число от 1 до 10
   const count = Math.floor(Math.random() * 10) + 1;
   randomCount.value = count;
+
+  const newUsers = [];
+
   for (let i = 0; i < count; i++) {
     const newId = Math.max(...users.value.map(u => u.id)) + 1;
     const newUser = {
@@ -105,8 +108,11 @@ function generateRandomUsers() {
       date: new Date().toISOString().split('T')[0],
       country: ['Россия', 'Беларусь', 'Украина', 'Казахстан'][Math.floor(Math.random() * 4)],
     };
-    dataStore.addUser(newUser);
+    newUsers.push(newUser);
   }
+
+  // Добавляем все сгенерированные записи сразу
+  dataStore.addUsers(newUsers);
 }
 
 // Функция для отображения Popover по клику на кнопку-триггер
