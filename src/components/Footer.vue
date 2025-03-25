@@ -4,8 +4,8 @@
 
 <template>
   <div class="footer text-white p-3">
-    <div class="container">
-      <div class="flex justify-content-between align-items-center">
+
+      <div class="flex justify-content-around align-items-center">
         <div>
           <p class="m-0 p-1">&copy; 2025 Vue Project. Все права защищены.</p>
         </div>
@@ -20,12 +20,12 @@
           </ul>
         </div>
       </div>
-    </div>
   </div>
 </template>
 
 <style scoped>
 .footer {
-  background-color: black !important;
+  background-color: black;
+  
 }
 </style>

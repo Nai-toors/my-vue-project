@@ -3,12 +3,17 @@ import aboutImage from '@/assets/rock.jpg'; // Импорт изображени
 </script>
 
 <template>
-  <div class="about-page">
-    <img :src="aboutImage" alt="Описание изображения" class="-ml-5 -mt-5" />
+  <div class="table-wrapper mt-6">
+    <div class="flex justify-content-center">
+      <img :src="aboutImage" alt="Описание изображения" class="" />
+    </div>
     <p>опа</p>
   </div>
 </template>
 
 <style scoped>
-
+.table-wrapper {
+  max-width: 95%;
+  margin: 0 auto;
+}
 </style>
