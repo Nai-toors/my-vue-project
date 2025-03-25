@@ -20,6 +20,9 @@
             <li class="mr-4">
               <router-link :to="{ name: 'List' }" class="no-underline text-700 hover:text-primary">Список</router-link>
             </li>
+            <li class="mr-4">
+              <router-link :to="{ name: 'Graphs' }" class="no-underline text-700 hover:text-primary">Графики</router-link>
+            </li>
           </ul>
         </div>
       </div>
