@@ -3,6 +3,7 @@ import Home from '@/views/Home.vue';
 import About from '@/views/About.vue';
 import List from '@/views/List.vue';
 import Graphs from '@/views/Graphs.vue';
+import ChartsComponent from '@/components/ChartsComponent.vue';
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/plots',
     name: 'Graphs',
     component: Graphs,
+  },
+  {
+    path: '/plots1',
+    name: 'Graphs1',
+    component: ChartsComponent,
   }
 ];
 

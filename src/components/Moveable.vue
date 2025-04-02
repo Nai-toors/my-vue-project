@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { ref, watch, onMounted, onUnmounted } from 'vue'; // onMounted/onUnmounted - выполняет код при появлении/удалении компонента
 import { useDataStore } from '@/stores/data';
 import draggable from 'vuedraggable';
 
@@ -8,34 +8,42 @@ const users = ref([...store.users]);
 
 // Наблюдение за изменениями в store.users
 watch(
-  () => store.users, // Что отслеживаем
+  () => store.users, // Эта функция-обёртка нужна, чтобы Vue понял, за каким значением нужно следить.
   (newUsers, oldUsers) => {
     console.log('store.users изменился:', { oldUsers, newUsers });
   },
-  { deep: true } // Глубокое отслеживание вложенных объектов
+  { deep: true } // тслеживаются не только сам массив, но и его вложенные объекты
 );
 
-// Логика перетаскивания окна
+// Изначальное положение окна
 const windowTop = ref(100);
 const windowLeft = ref(100);
+// Начальный размер окна
 const windowWidth = ref(300);
-const windowHeight = ref(465);
+const windowHeight = ref(458);
+// Флаги для отслеживания состояния перетаскивания и изменения размера
 const isDragging = ref(false);
 const isResizing = ref(false);
+// Переменные, используемые при перетаскивании и изменении размера
 let startX = 0;
 let startY = 0;
 let startWidth = 0;
 let startHeight = 0;
 
 const startDrag = e => {
+  // e — это событие мыши (MouseEvent), которое передаётся автоматически
   // Пропускаем, если клик был на кнопке закрытия или на ручке изменения размера
-  if (e.target.classList.contains('close-btn') || e.target.classList.contains('resize-handle')) return;
+  // e.target — это элемент, по которому кликнули, .classList.contains('close-btn') — проверяет, есть ли у элемента класс close-btn
+  if (e.target.classList.contains('close-btn') || e.target.classList.contains('resize-handle')) return; //  функция сразу прекращает работу (return), чтобы не начать перетаскивание
 
-  isDragging.value = true;
-  startX = e.clientX - windowLeft.value;
-  startY = e.clientY - windowTop.value;
+  // Активируем режим перетаскивания.
+  isDragging.value = true; // true значит, что окно сейчас перемещается.
 
-  document.addEventListener('mousemove', onDrag);
+  // Запоминаем начальную позицию мыши относительно окна, чтобы при перемещении курсор оставался в том же месте окна
+  startX = e.clientX - windowLeft.value; // e.clientX и e.clientY — координаты курсора на экране в момент нажатия
+  startY = e.clientY - windowTop.value; // windowLeft.value и windowTop.value — текущая позиция окна
+
+  document.addEventListener('mousemove', onDrag); // addEventListener позволяет привязать обработчик к событию на определённом элементе
   document.addEventListener('mouseup', stopDrag);
 };
 
@@ -161,20 +169,15 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-
-
 .close-btn {
   border: none;
   background: none;
-
 }
 
 /* Отключаем выделение текста (user-select) */
 .user-select-none {
   user-select: none;
 }
-
-
 
 /* Ручка изменения размера */
 .resize-handle {

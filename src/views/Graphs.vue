@@ -3,7 +3,7 @@ import ECharts from '@/components/ECharts.vue';
 </script>
 
 <template>
-  <div class="mt-5">
+  <div class="mt-3">
     <ECharts />
   </div>
 </template>
