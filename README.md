@@ -49,4 +49,4 @@ localStorage.clear()
 - Управление состоянием с помощью Pinia
 - Адаптивная вёрстка с PrimeFlex
 
-## Демо можно посмотреть по [ссылке](https://my-vue-project-beta.vercel.app/)
+## Демо можно посмотреть по [ссылке]([https://my-vue-project-beta.vercel.app/](https://my-vue-project-git-homework-2charts-nai-toors-projects.vercel.app))
