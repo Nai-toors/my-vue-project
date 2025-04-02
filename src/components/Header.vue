@@ -7,7 +7,7 @@
     <div class="surface-0 shadow-2 p-3">
       <div class="flex justify-content-between align-items-center">
         <div class="logo text-2xl font-bold">
-          <router-link to="/" class="text-primary no-underline">Vue Project</router-link>
+          <router-link :to="{ name: 'Home' }" class="text-primary no-underline">Vue Project</router-link>
         </div>
         <div class="flex align-items-center">
           <ul class="menu flex list-none m-0 p-0">
@@ -19,6 +19,12 @@
             </li>
             <li class="mr-4">
               <router-link :to="{ name: 'List' }" class="no-underline text-700 hover:text-primary">Список</router-link>
+            </li>
+            <li class="mr-4">
+              <router-link :to="{ name: 'Graphs' }" class="no-underline text-700 hover:text-primary">Графики норм</router-link>
+            </li>
+            <li class="mr-4">
+              <router-link :to="{ name: 'Graphs1' }" class="no-underline text-700 hover:text-primary">Графики тест</router-link>
             </li>
           </ul>
         </div>
